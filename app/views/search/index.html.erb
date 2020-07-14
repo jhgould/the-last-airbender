@@ -1,9 +1,14 @@
 <h3><%= "#{@json.count} People"  %></h3>
-<% @json.each do |memeber| %>
-  <ul>
-    <li></li>
-    <li></li>
-    <li></li>
+<% @json.each do |member| %>
+  <ul class="member">
+    <li class="name"><%=member[:name]%></li>
+    <li class="photo"><%=member[:photoUrl]%></li>
+    <% member[:enemies].each do |enemie| %>
+        <li class="enemies">
+          <%= enemie %>
+        </li>
+    <% end %>
+    <li class="affiliation"><%=member[:affiliation]%></li>
   </ul>
 
 <% end %>
