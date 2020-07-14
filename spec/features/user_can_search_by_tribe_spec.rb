@@ -14,6 +14,7 @@ RSpec.describe "User can seach for avatars by tribe" do
       expect(page).to have_css(".photo")
       expect(page).to have_css(".enemies")
       expect(page).to have_css(".affiliation")
+      expect(page).to have_css(".allies")
 
     end
 
