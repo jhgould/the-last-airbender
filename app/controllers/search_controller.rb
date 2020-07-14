@@ -1,16 +1,7 @@
 class SearchController < ApplicationController
   def index
-    tribe = params[:nation].sub(/_/, "+")
 
-    conn = Faraday.new(url: "https://last-airbender-api.herokuapp.com/")
-
-    response = conn.get("/api/v1/characters?affiliation=#{tribe}") do |faraday|
-      faraday.headers
-    end
-    json = JSON.parse(response.body, symbolize_names: true)
-
-    @member = json.map do |member_data|
-      Member.new(member_data)
-    end
+    results = SearchResults.new
+    @members = results.members(params[:nation])
   end
 end
