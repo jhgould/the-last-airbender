@@ -1,14 +1,21 @@
 <h3><%= "#{@members.count} People"  %></h3>
 <% @members.each do |member| %>
   <ul class="member">
-    <li class="name"><%=member.name%></li>
-    <li class="photo"><%=member.photoUrl%></li>
+    <li class="name"><h4>Names:</h4><%=member.name%></li>
+    <li class="photo"><h4>Photo:</h4><%=member.photoUrl%></li>
+    <li><h4>Enemies:</h4></li>
     <% member.enemies.each do |enemie| %>
         <li class="enemies">
           <%= enemie %>
         </li>
     <% end %>
-    <li class="affiliation"><%=member.affiliation%></li>
+    <li><h4>Allies:</h4></li>
+    <% member.allies.each do |allie| %>
+        <li class="enemies">
+          <%= allie %>
+        </li>
+    <% end %>
+    <li class="affiliation"><h4>Affiliation:</h4><%=member.affiliation%></li>
   </ul>
-
+  ------------------------------------------------------------------------
 <% end %>
