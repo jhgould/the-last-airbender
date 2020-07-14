@@ -2,7 +2,7 @@
 <% @members.each do |member| %>
   <ul class="member">
     <li class="name"><h4>Names:</h4><%=member.name%></li>
-    <li class="photo"><h4>Photo:</h4><%=member.photoUrl%></li>
+    <li class="photo"><h4>Photo:</h4><img src="<%=member.photoUrl%>"></li>
     <li><h4>Enemies:</h4></li>
     <% member.enemies.each do |enemie| %>
         <li class="enemies">
