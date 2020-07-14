@@ -7,6 +7,10 @@ class SearchController < ApplicationController
     response = conn.get("/api/v1/characters?affiliation=#{tribe}") do |faraday|
       faraday.headers
     end
-    @json = JSON.parse(response.body, symbolize_names: true)
+    json = JSON.parse(response.body, symbolize_names: true)
+
+    @member = json.map do |member_data|
+      Member.new(member_data)
+    end
   end
 end
